@@ -29,6 +29,7 @@ class GameTypeTableSeeder extends Seeder
                 'status' => 1,
                 'img'   => 'live_casino.png'
             ],
+             
             [
                 'name'  => 'Sport Book',
                 'name_mm' => 'အားကစား',
@@ -38,10 +39,18 @@ class GameTypeTableSeeder extends Seeder
                 'img'   => 'sportbook.png'
             ],
             [
+                'name'  => 'Lottery',
+                'name_mm' => 'Lottery',
+                'code'  => '5',
+                'order' => '4',
+                'status' => 0,
+                'img'   => 'live_casino.png'
+            ],
+            [
                 'name' => 'Fishing',
                 'name_mm' => 'ငါးဖမ်းခြင်း',
                 'code' => '8',
-                'order' => '4',
+                'order' => '5',
                 'status' => 1,
                 'img'  => 'fishing.png'
             ],
@@ -49,7 +58,23 @@ class GameTypeTableSeeder extends Seeder
                 'name' => 'Other',
                 'name_mm' => 'အခြားဂိမ်းများ',
                 'code' => '9',
-                'order' => '5',
+                'order' => '6',
+                'status' => 0,
+                'img'  => 'other.png'
+            ],
+            [
+                'name' => 'Test1',
+                'name_mm' => 'အခြားဂိမ်းများ',
+                'code' => '11',
+                'order' => '7',
+                'status' => 0,
+                'img'  => 'other.png'
+            ],
+            [
+                'name' => 'Test2',
+                'name_mm' => 'အခြားဂိမ်းများ',
+                'code' => '12',
+                'order' => '8',
                 'status' => 0,
                 'img'  => 'other.png'
             ],
