@@ -50,7 +50,7 @@ class GameTypeTableSeeder extends Seeder
                 'name_mm' => 'အခြားဂိမ်းများ',
                 'code' => '9',
                 'order' => '5',
-                'status' => 1,
+                'status' => 0,
                 'img'  => 'other.png'
             ],
         ];
