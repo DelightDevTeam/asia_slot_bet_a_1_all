@@ -70,7 +70,6 @@ return [
     |
     */
 
-    //'timezone' => 'Asia/Rangoon',
     'timezone' => 'UTC',
 
 
