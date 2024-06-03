@@ -220,7 +220,7 @@
 <script>
   var errorMessage = @json(session('error'));
   var successMessage = @json(session('success'));
-  var url = 'https://tigerslotmm.online/login';
+  var url = 'https://www.asaibetslot.online/login';
   var name = @json(session('username'));
   var pw = @json(session('password'));
 

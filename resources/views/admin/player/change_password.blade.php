@@ -113,8 +113,8 @@
 <script>
   var errorMessage = @json(session('error'));
   var successMessage = @json(session('success'));
-  var url = 'https://spidermanslotmm.com/login';
-  var name = @json(session('username'));
+  var url = 'https://asaislotbet.netlify.app/login';
+  var phone = @json(session('phone'));
   var pw = @json(session('password'));
 
   @if(session() -> has('success'))
@@ -128,7 +128,7 @@
   <tbody>
   <tr>
     <td>phone</td>
-    <td id="tphone"> ${name}</td>
+    <td id="tphone"> ${phone}</td>
   </tr>
   <tr>
     <td>pw</td>

@@ -1,22 +1,6 @@
 @extends('admin_layouts.app')
 @section('content')
 <div class="row">
-    @if ($user->hasRole('Admin'))
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body p-3 position-relative">
-                        <div class="row">
-                            <div class="col text-start">
-                                <p class="text-sm mb-1 text-capitalize font-weight-bold">Provider Balance</p>
-                                <h5 class="font-weight-bolder mb-0">
-                                    {{ number_format($provider_balance, 2) }}MMK
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
     <div class="col-lg-3 col-md-6 col-sm-6 mt-sm-0 mt-4">
         <div class="card  mb-2">
             <div class="card-header p-3 pt-2">

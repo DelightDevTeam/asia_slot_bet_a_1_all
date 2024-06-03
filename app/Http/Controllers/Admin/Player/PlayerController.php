@@ -99,7 +99,7 @@ class PlayerController extends Controller
             $player->roles()->sync(self::PLAYER_ROLE);
 
             if (isset($inputs['amount'])) {
-                app(WalletService::class)->transfer($agent, $player, $inputs['amount'], TransactionName::CreditTransfer,['note' => $inputs['note']]);
+                app(WalletService::class)->transfer($agent, $player, $inputs['amount'], TransactionName::CreditTransfer);
             }
             return redirect()->back()
                 ->with('success', 'Player created successfully')
