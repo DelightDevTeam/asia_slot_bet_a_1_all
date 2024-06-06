@@ -64,7 +64,7 @@
 </div>
 </div>
 @can('admin_access')
-<div class="row gx-4 mt-4">
+{{-- <div class="row gx-4 mt-4">
     <div class="col-md-6">
         <div class="card">
             <form action="{{ route('admin.balanceUp') }}" method="post">
@@ -86,7 +86,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
     @endcan
     @endsection
     @section('scripts')
