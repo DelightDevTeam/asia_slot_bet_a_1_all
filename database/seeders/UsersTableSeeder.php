@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
         $master = $this->createUser(UserType::Master, "Master 1", "M898437", "09112345678", $admin->id);
         (new WalletService())->transfer($admin, $master, 8 * 100_000, TransactionName::CreditTransfer);
 
-        $agent_1 = $this->createUser(UserType::Agent, "Agent 1", "A898737", "09112345674", $master->id);
+        $agent_1 = $this->createUser(UserType::Agent, "Agent 1", "A898737", "09112345674", $master->id, 'AEENVICj');
         (new WalletService())->transfer($master, $agent_1, 5 * 100_000, TransactionName::CreditTransfer);
 
         $player_1 = $this->createUser(UserType::Player, "Player 1", "MW111111", "09111111111", $agent_1->id);
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
 
     }
 
-    private function createUser(UserType $type, $name, $user_name, $phone, $parent_id = null)
+    private function createUser(UserType $type, $name, $user_name, $phone, $parent_id = null, $referral_code = null)
     {
         return User::create([
             'name'           => $name,

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
+use App\Enums\UserType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ChangePasswordRequest;
 use App\Http\Requests\Api\LoginRequest;
 use App\Http\Requests\Api\ProfileRequest;
+use App\Http\Requests\Api\RegisterRequest;
 use App\Http\Resources\PlayerResource;
+use App\Http\Resources\RegisterResource;
 use App\Http\Resources\UserResource;
 use App\Models\Admin\UserLog;
 use App\Models\User;
@@ -18,6 +21,9 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     use HttpResponses;
+
+    private const PLAYER_ROLE = 4 ;
+
     public function login(LoginRequest $request)
     {
         $credentials = $request->only('phone', 'password');
@@ -108,5 +114,37 @@ class AuthController extends Controller
         ]);
 
         return $this->success(new PlayerResource($player), 'Update profile');
+    }
+
+    public function register(RegisterRequest $request)
+    {
+        $agent = User::where('referral_code', $request->referral_code)->first();
+
+        if($agent)
+        {
+            $inputs = $request->validated();
+
+            $userPrepare = [
+                    'name' => $request->name,
+                    'phone' => $request->phone,
+                    'user_name' => $this->generateRandomString(),
+                    'password' => Hash::make($inputs['password']),
+                    'agent_id' => $agent->id,
+                    'type' => UserType::Player,
+            ];
+    
+            $player = User::create($userPrepare);
+            $player->roles()->sync(self::PLAYER_ROLE);
+
+            return $this->success(new RegisterResource($player), 'User register successfully.');
+        }else{
+            return $this->error('', 'Not Found Agent', 401);
+        }
+    }
+
+    private function generateRandomString()
+    {
+        $randomNumber = mt_rand(10000000, 99999999);
+        return 'AS-' . $randomNumber;
     }
 }

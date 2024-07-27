@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('bank_id')->nullable(); // Assuming ID in banks is also an unsigned integer
             $table->string('bank_account_name')->nullable();
             $table->string('bank_account')->nullable();
+            $table->string('referral_code')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();
 
